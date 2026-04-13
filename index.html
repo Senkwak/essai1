@@ -1,0 +1,184 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMA Future Interface</title>
+  <meta name="description" content="Site portfolio startup tech futuriste avec interface immersive, galerie média et navigation SPA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <section id="login-screen" class="screen is-active" aria-label="Écran de connexion">
+    <div class="terminal-shell panel-glass">
+      <div class="scan-overlay" aria-hidden="true"></div>
+      <p class="terminal-label">SECURE NODE // INIT</p>
+      <h1 class="glitch-title" data-text="EMA ACCESS GATE">EMA ACCESS GATE</h1>
+
+      <div class="boot-lines" id="bootLines" aria-live="polite"></div>
+
+      <div class="boot-loader" id="bootLoader" aria-label="Chargement système">
+        <div class="progress-track">
+          <div class="progress-bar" id="bootProgress"></div>
+        </div>
+        <span id="progressValue">0%</span>
+      </div>
+
+      <form id="loginForm" class="login-form is-hidden" autocomplete="off">
+        <label for="passwordInput">Passphrase</label>
+        <div class="input-wrap">
+          <input id="passwordInput" type="password" placeholder="Entrer le mot de passe" required>
+          <button type="submit" class="btn-neon">Authentifier</button>
+        </div>
+        <p id="loginStatus" class="status-message" aria-live="assertive"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="entry-transition" class="screen" aria-label="Transition d'entrée">
+    <div class="access-card panel-glass">
+      <p class="terminal-label">SYSTEM CHANNEL</p>
+      <h2 class="access-title glitch-title" data-text="SYSTEM ACCESS GRANTED">SYSTEM ACCESS GRANTED</h2>
+      <p>Connexion au noyau principal...</p>
+    </div>
+  </section>
+
+  <div id="main-app" class="screen" aria-label="Application principale">
+    <header class="top-nav panel-glass">
+      <a href="#" class="brand nav-jump" data-target="home-section" aria-label="Accueil EMA Future Interface">
+        <span class="brand-dot"></span>
+        EMA / Future Interface
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="mainNav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav" class="nav-links" aria-label="Sections principales">
+        <button class="nav-link is-selected" data-target="home-section">Accueil</button>
+        <button class="nav-link" data-target="gallery-section">Galerie</button>
+        <button class="nav-link" data-target="description-section">Description</button>
+        <button class="nav-link" data-target="contact-section">Contact</button>
+      </nav>
+    </header>
+
+    <main class="section-stage">
+      <section id="home-section" class="spa-section is-visible">
+        <div class="hero panel-glass reveal">
+          <p class="chip">NEXT-GEN DIGITAL EXPERIENCE</p>
+          <h2 class="glow-heading">Un univers startup premium, pensé pour impressionner.</h2>
+          <p>
+            Cette interface combine précision visuelle, transitions immersives et interactions cyber-futuristes
+            pour transformer un simple site en expérience mémorable.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-neon nav-jump" data-target="gallery-section">Explorer la galerie</button>
+            <button class="btn-ghost nav-jump" data-target="contact-section">Entrer en contact</button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card panel-glass reveal">
+            <h3>UI Signature</h3>
+            <p>Design néon, glassmorphism et micro-interactions calibrées pour une identité visuelle haut de gamme.</p>
+          </article>
+          <article class="stat-card panel-glass reveal">
+            <h3>UX Fluide</h3>
+            <p>Navigation SPA sans rechargement avec transitions douces et animations cohérentes entre sections.</p>
+          </article>
+          <article class="stat-card panel-glass reveal">
+            <h3>Impact Immersif</h3>
+            <p>Loader hacker, particules en fond et effets glitch pour un rendu tech moderne et convaincant.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery-section" class="spa-section">
+        <div class="section-head reveal">
+          <p class="chip">GALERIE MÉDIA</p>
+          <h2 class="glow-heading">Images & vidéos dans un espace interactif.</h2>
+        </div>
+
+        <div class="media-wrapper">
+          <article class="gallery-column panel-glass reveal">
+            <h3>Images</h3>
+            <div id="imageGallery" class="media-grid" aria-live="polite"></div>
+          </article>
+
+          <article class="gallery-column panel-glass reveal">
+            <h3>Vidéos</h3>
+            <div id="videoGallery" class="media-grid" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="description-section" class="spa-section">
+        <div class="section-head reveal">
+          <p class="chip">DESCRIPTION</p>
+          <h2 class="glow-heading">Un positionnement professionnel, clair et orienté résultats.</h2>
+        </div>
+
+        <div class="description-layout">
+          <article class="description-card panel-glass reveal">
+            <h3>Notre vision</h3>
+            <p id="typingText" data-fulltext="Nous concevons des expériences numériques qui renforcent la crédibilité d'une marque dès la première seconde. Notre approche allie storytelling visuel, performance front-end et design d'interaction pour convertir l'attention en confiance, puis la confiance en action."></p>
+          </article>
+
+          <article class="description-card panel-glass reveal">
+            <h3>Notre méthode</h3>
+            <ul>
+              <li>Direction artistique premium adaptée à votre identité.</li>
+              <li>Architecture front-end performante en HTML/CSS/JS pur.</li>
+              <li>Expérience utilisateur immersive avec animations intentionnelles.</li>
+              <li>Structure claire, responsive et prête à évoluer.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact-section" class="spa-section">
+        <div class="contact-layout panel-glass reveal">
+          <div class="section-head">
+            <p class="chip">CONTACT</p>
+            <h2 class="glow-heading">Parlons de ton prochain produit digital.</h2>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="field-row">
+              <label for="contactName">Nom</label>
+              <input type="text" id="contactName" name="name" placeholder="Votre nom" required>
+            </div>
+
+            <div class="field-row">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="vous@exemple.com" required>
+            </div>
+
+            <div class="field-row">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Décrivez votre besoin" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-neon">Envoyer le message</button>
+            <p id="contactStatus" class="status-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="mediaModal" class="media-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <button id="modalClose" class="modal-close" aria-label="Fermer">×</button>
+    <div id="modalBody" class="modal-body"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
